@@ -22,9 +22,10 @@ export class AppController {
   @Put(':id')
   getPut(@Body() data:any,@Param('id') id :string):any{
     data.id=id
+    console.log(data)
     return this.appService.updatedata(data)
   }
-  @Delete()
+  @Delete(':id')
   deleteuser(@Param('id') id:string):Promise<string>{
     return this.appService.deletedata(+id)
   }

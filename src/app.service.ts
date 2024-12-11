@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { readFile, writeFile } from '../functions.ts';
+import { readFile, writeFile } from '../functions';
 type user={
   id?:Number
   name:String,
@@ -39,6 +39,7 @@ export class AppService {
         result[i].password=data.password
       }
     }
+    await writeFile(result)
     return "Malumot yangilandi"
   }
 
